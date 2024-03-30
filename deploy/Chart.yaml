@@ -1,0 +1,9 @@
+apiVersion: v2
+name: pvc-cleanup
+version: 1.0.0
+kubeVersion: ">=1.26.0"
+description: Script which cleans pvc not used for more than 1 day
+type: application
+keywords:
+  - pvc-cleanup
+appVersion: 1.0.0

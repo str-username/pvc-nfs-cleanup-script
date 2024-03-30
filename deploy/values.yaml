@@ -1,0 +1,35 @@
+name: pvc-cleanup
+mode: "always"
+schedule: "0 0 * * *"
+image:
+  repository: ""
+  version: ""
+resources:
+  limits:
+    cpu: 50m
+    memory: 32Mi
+  requests:
+    cpu: 50m
+    memory: 32Mi
+nodeSelector:
+  role: l1
+tolerations:
+  - key: key
+    operator: Equal
+    value: value
+    effect: NoExecute
+volumes:
+  - name: nfs-name
+    nfs:
+      path: /claim-path
+      server: address
+volumeMounts:
+  - name: nfs-name
+    mountPath: /path
+env:
+  - name: RUN_MODE
+    value: always
+  - name: CHECK_FOLDERS
+    value: /path
+  - name: RUN_INTERVAL
+    value: 120s
